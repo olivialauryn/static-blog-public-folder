@@ -5,27 +5,7 @@
     <link>/categories/linux/</link>
     <description>Recent content in Linux on Olivia Snowden&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 03 Oct 2020 17:50:51 +0000</lastBuildDate><atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>BASH BASICS</title>
-      <link>/bash-basics/</link>
-      <pubDate>Sat, 03 Oct 2020 17:50:51 +0000</pubDate>
-      
-      <guid>/bash-basics/</guid>
-      <description>Bash, or the Bourne-Again SHell, is named after the creator of the Unix shell Stephen Bourn. Bash is a command language interpreter that can execute commands and process text files as input. Shell scripts are, basically, files containing a series of commands. You can schedule Bash scripts to run at certain times to automate tasks for you.
-If you are using a Linux machine, you can write and execute Bash scripts in terminal.</description>
-    </item>
-    
-    <item>
-      <title>TERRAFORM IN vSPHERE</title>
-      <link>/terraform-in-vsphere/</link>
-      <pubDate>Wed, 08 Jul 2020 18:47:39 +0000</pubDate>
-      
-      <guid>/terraform-in-vsphere/</guid>
-      <description>Introduction to Terraform Terraform by Hashicorp is a &amp;ldquo;tool for building, changing, and versioning infrastructure safely and efficiently&amp;rdquo;. Terraform works using infrastructure as code, meaning that build a blueprint of the resources you need in a configuration file (with the .tf extension) and Terraform builds that infrastructure for you. The Terraform package itself is a single binary file, easily downloaded, and is used to build/edit/destroy your resources.
-In contrast to older versions of infrastructure build tools like Packer, Terraform allows you to create infrastructure across multiple cloud providers and is &amp;ldquo;smart&amp;rdquo; enough to know how many more machines to create in context of what you already have.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 17 Jun 2020 19:24:25 +0000</lastBuildDate><atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ARCH LINUX INSTALL</title>
       <link>/arch-linux-install/</link>

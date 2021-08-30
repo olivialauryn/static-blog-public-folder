@@ -5,7 +5,17 @@
     <link>/post/</link>
     <description>Recent content in Posts on Olivia Snowden&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 17 Feb 2021 22:04:21 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>STATIC BLOG</title>
+      <link>/static-blog/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/static-blog/</guid>
+      <description>Until now, the blog I use to document my projects has been hosted on WordPress. To cut down on the cost of running my blog (and to complete a cool project), I’ve made my blog a static website.
+Most websites we visit are dynamic websites, meaning that a web server generates the site with content that can change and be interacted with by users. Static websites are the opposite, they display the same content for every user and are shown exactly as they are written (usually using HTML).</description>
+    </item>
+    
     <item>
       <title>DETECTING OBJECTS WITH CODE - Capstone Pt.2</title>
       <link>/capstone-pt2/</link>
