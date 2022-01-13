@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/automation/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/code/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/home-lab/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/ansible/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/raspberrypi/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/replace-json-values/</loc>
     <lastmod>2021-12-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/automation/</loc>
-    <lastmod>2021-12-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/code/</loc>
-    <lastmod>2021-12-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2021-12-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2021-12-22T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/python/</loc>
-    <lastmod>2021-12-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2021-12-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/static-blog/</loc>
@@ -48,12 +57,6 @@
     <lastmod>2020-10-03T17:50:51+00:00</lastmod>
   </url><url>
     <loc>/tags/docker/</loc>
-    <lastmod>2020-07-17T00:02:29+00:00</lastmod>
-  </url><url>
-    <loc>/tags/home-lab/</loc>
-    <lastmod>2020-07-17T00:02:29+00:00</lastmod>
-  </url><url>
-    <loc>/tags/raspberrypi/</loc>
     <lastmod>2020-07-17T00:02:29+00:00</lastmod>
   </url><url>
     <loc>/raspberry-pi-kubernetes/</loc>

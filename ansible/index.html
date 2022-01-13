@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>INTRODUCTION TO ANSIBLE &middot; </title>
+        <meta name="description" content="In this post:
+  What is Ansible
+  Installing Ansible
+  Authentication
+  Inventories
+  Playbooks
+  Testing Ansible
+  What is Ansible? Ansible is an open-source infrastructure as code tool provided by Red Hat. Instead of agents, Ansible relies on SSH to pass tasks defined in YAML to remote machines. To get familiar with Ansible, I created a simple scenario where a bash script needed to be uploaded to a remote machine and ran periodically.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.87.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="INTRODUCTION TO ANSIBLE">
+<meta property="og:description" content="In this post:
+  What is Ansible
+  Installing Ansible
+  Authentication
+  Inventories
+  Playbooks
+  Testing Ansible
+  What is Ansible? Ansible is an open-source infrastructure as code tool provided by Red Hat. Instead of agents, Ansible relies on SSH to pass tasks defined in YAML to remote machines. To get familiar with Ansible, I created a simple scenario where a bash script needed to be uploaded to a remote machine and ran periodically.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/ansible/">
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="/">Olivia Snowden&#39;s Blog</a>
+                            </h1>
+                        
+                        
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/olivialauryn" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" aria-label="LinkedIn" href="https://www.linkedin.com/in/olivialaurynsnowden" rel="me">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">INTRODUCTION TO ANSIBLE</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-01-13" itemprop="datePublished">Thu, Jan 13, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Olivia Snowden</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p><img src="/ansible-logo.png" alt="">
+<strong>In this post:</strong></p>
+<ol>
+<li>
+<p><strong>What is Ansible</strong></p>
+</li>
+<li>
+<p><strong>Installing Ansible</strong></p>
+</li>
+<li>
+<p><strong>Authentication</strong></p>
+</li>
+<li>
+<p><strong>Inventories</strong></p>
+</li>
+<li>
+<p><strong>Playbooks</strong></p>
+</li>
+<li>
+<p><strong>Testing Ansible</strong></p>
+</li>
+</ol>
+<h3 id="what-is-ansible">What is Ansible?</h3>
+<p>Ansible is an open-source infrastructure as code tool provided by Red Hat. Instead of agents, Ansible relies on SSH to pass tasks defined in YAML to remote machines.  To get familiar with Ansible, I created a simple scenario where a bash script needed to be uploaded to a remote machine and ran periodically.</p>
+<p>In a previous <a href="https://www.osnowden.com/raspberry-pi-kubernetes/">blog post</a> I&rsquo;ve explained the process of building a Kubernetes cluster using 3 Rasperry Pis in my home computer lab. For this project I used my personal MacBook and one of the Pis from that cluster. Although it is possible to use Ansible with all 3 Pis, for the simplicity of this project I used only 1.
+<img src="/raspberry-1.jpeg" alt=""></p>
+<h3 id="installing-ansible">Installing Ansible</h3>
+<p>To install Ansible, the Ansible package just needs to be downloaded onto a machine running MacOS or Windows and with Python 3.8 (or a newer version of Python) installed. The machine with Ansible installed becomes the control node, and can then manage a fleet of machines or &ldquo;managed nodes&rdquo;.  Ansible usually uses SSH to connect to managed nodes and transfers tasks using SFTP. That being said, if any of the nodes can&rsquo;t use SFTP you can switch to SCP in the Ansible config file ansible.cfg.
+I have a MacBook, and to install Ansible using pip I ran: <code>sudo python3 -m pip install ansible</code>
+<img src="/ansible-install-ansible.png" alt="">
+This installed Ansible my home directory under /Users</p>
+<h3 id="authentication">Authentication</h3>
+<p>Since Ansible connects to managed nodes using SSH, I needed to create an SSH key pair. The <em>private</em> SSH key would remain on the control node, and the <em>public</em> SSH key would be placed on the managed node. This way, the connection between the nodes was secure for SSH.</p>
+<p><strong>Note: To avoid using SSH keys, the <code>--ask-pass</code> argument can be added to Ansible commands to prompt the user for the SSH password.</strong></p>
+<p>To create an SSH key pair, I used the ssh-keygen command: <code>ssh-keygen -t rsa -f FILE_NAME</code>
+<img src="/ansible-key.png" alt="">
+The key pair is placed in the default SSH key directory, ~/.ssh
+The public keys have the <code>.pub</code> extension,  this is the key that needs to be placed on the managed node in the ~/.ssh/authorized_keys directory.
+<img src="/ansible-ssh-keys.png" alt="">
+To place my &ldquo;id_rsa.pub&rdquo; public key on the managed node I used an SCP command with the syntax: <code>scp LOCAL_PATH_OF_KEY USER@IP_OF_CONTROL_NODE:~/.ssh/authorized_keys</code></p>
+<h3 id="inventory">Inventory</h3>
+<p>Once the control node and the managed node(s) have a secure connection, the managed nodes can be added to an inventory. Ansible inventories specify managed nodes that should be used by Ansible, and you can use an inventory to organize your managed nodes. The default location for Ansible&rsquo;s inventory is /etc/ansible/hosts. The <code>-i PATH_TO_HOSTS_FILE</code> argument can be added to Ansible commands to specify a different path for the inventory if you are working out of a different directory (which I did).</p>
+<p>The contents of an inventory can be as simple as the IP addresses of the managed nodes, which is what I used. However group names enclosed in brackets [] and assigning aliases to hosts with <code>ALIAS ansible_host=IP</code> can help organize the inventory.
+<img src="/ansible-hosts-file.png" alt="">
+Once the managed hosts were defined, I tested the connection between the control and managed nodes using a ping command with the syntax:  <code>ansible all -i PATH_TO_HOSTS_FILE -u USERNAME_ON_MANAGED_NODE -m ping</code>
+<img src="/ansible-ping.png" alt=""></p>
+<h3 id="playbooks">Playbooks</h3>
+<p>Next, the tasks to be passed along to the managed nodes defined in the inventory need to be specified in a playbook. Playbooks are YAML files that can include variables and tasks, and are executed from top to bottom. Tasks are named with the <code>-name</code> line, the value of which appears when Ansible executes the playbook so that you can keep track of when tasks run. Like Python, Ansible has a variety of modules that can be called to perform tasks. The list of Ansible modules can be found on their <a href="https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html">site</a> and incorporated into the YAML of playbooks.</p>
+<p>Similar to Terraform, Ansible can check whether anything needs to be changed on managed nodes to meet the desired configuration in the playbook. Therefore, if nothing needs to be changed Ansible won&rsquo;t do anything.
+For my playbook, I needed to upload a bash script to a managed node and have that script run on a schedule. For testing purposes, I created a simple bash script, &ldquo;test-script.sh&rdquo;,  to place &ldquo;Hello World&rdquo; into a new file &ldquo;output.sh&rdquo; each time the script ran. In my playbook, playbook.yml, I created two tasks. The first task transferred test-script.sh from the control node to the home directory of the user &ldquo;pi&rdquo; on the managed node.  The second task used Ansible&rsquo;s &ldquo;cron&rdquo; module to create a cron job on the managed node. The details of the cron job set test-script.sh to run daily at 2 and 5.</p>
+<p><strong>Note: I used the cron module since the managed node was running Linux. If the managed node is a Windows machine, the Ansible module win_scheduled_task can be used to run tasks on a schedule.</strong></p>
+<p><img src="/ansible-playbook.png" alt="">
+<strong>Note: It is important to give scripts the appropriate permissions to run, hence &ldquo;mode=0777&rdquo;</strong></p>
+<h3 id="testing-ansible">Testing Ansible</h3>
+<p>To test the playbook, I ran the command ansible-playbook using the syntax: <code>-i PATH_TO_HOSTS_FILE playbook.yml</code>
+<img src="/ansible-run-playbook.png" alt="">
+To confirm that Ansible worked, I SSHed into the managed node and checked that test-script.sh was on the machine, the output.sh file was created and contained &ldquo;Hello World&rdquo;, and that the cronjob specified in the playbook existed using the command <code>crontab -l</code>. I then removed the cron job using <code>crontab -r</code> and deleted test-script.sh and output .sh using the <code>rm FILE_NAME</code> command.
+<img src="/ansible-result.png" alt=""></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/code/">code</a>, 
+                <a href="/tags/raspberrypi/">raspberrypi</a>, 
+                <a href="/tags/home-lab/">home-lab</a>, 
+                <a href="/tags/automation/">automation</a>
+        </p>
+    <div class="share">
+            <a class="icon-twitter" href="https://twitter.com/share?text=INTRODUCTION%20TO%20ANSIBLE&url=%2fansible%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">Olivia Snowden&#39;s Blog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+

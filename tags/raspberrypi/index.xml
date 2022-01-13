@@ -5,7 +5,23 @@
     <link>/tags/raspberrypi/</link>
     <description>Recent content in raspberrypi on Olivia Snowden&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 17 Jul 2020 00:02:29 +0000</lastBuildDate><atom:link href="/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>INTRODUCTION TO ANSIBLE</title>
+      <link>/ansible/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/ansible/</guid>
+      <description>In this post:
+  What is Ansible
+  Installing Ansible
+  Authentication
+  Inventories
+  Playbooks
+  Testing Ansible
+  What is Ansible? Ansible is an open-source infrastructure as code tool provided by Red Hat. Instead of agents, Ansible relies on SSH to pass tasks defined in YAML to remote machines. To get familiar with Ansible, I created a simple scenario where a bash script needed to be uploaded to a remote machine and ran periodically.</description>
+    </item>
+    
     <item>
       <title>RASPI KUBERNETES CLUSTER WITH RANCHER</title>
       <link>/raspberry-pi-kubernetes/</link>
