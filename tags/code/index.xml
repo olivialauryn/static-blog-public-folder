@@ -134,5 +134,19 @@ First, I put the Raspbian Lite OS on a mini SD card.</description>
 One Raspberry pi served as the NFS server, while the other two were NFS clients. One of the clients was a Raspberry Pi zero w outfitted with a camera to take the pictures and store them on the NFS server.</description>
     </item>
     
+    <item>
+      <title>BUILDING A LOADBALANCER</title>
+      <link>/building-a-loadbalancer/</link>
+      <pubDate>Wed, 31 Dec 1969 19:33:43 -0500</pubDate>
+      
+      <guid>/building-a-loadbalancer/</guid>
+      <description>In this post:
+  What is a Load Balancer
+  GCP Load Balancers
+  Creating a Load Balancer using Terraform
+  What is a Load Balancer? Load balancers are networking resources that take in network traffic through their frontend and distribute that traffic to their backend(s). Load balancers have a few general attributes:
+ Frontend Where clients reach the load balancer, the &amp;ldquo;face&amp;rdquo; of the load balancer.</description>
+    </item>
+    
   </channel>
 </rss>

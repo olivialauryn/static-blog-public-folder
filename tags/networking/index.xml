@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>networking on Olivia Snowden&#39;s Blog</title>
+    <link>/tags/networking/</link>
+    <description>Recent content in networking on Olivia Snowden&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 31 Dec 1969 19:33:43 -0500</lastBuildDate><atom:link href="/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BUILDING A LOADBALANCER</title>
+      <link>/building-a-loadbalancer/</link>
+      <pubDate>Wed, 31 Dec 1969 19:33:43 -0500</pubDate>
+      
+      <guid>/building-a-loadbalancer/</guid>
+      <description>In this post:
+  What is a Load Balancer
+  GCP Load Balancers
+  Creating a Load Balancer using Terraform
+  What is a Load Balancer? Load balancers are networking resources that take in network traffic through their frontend and distribute that traffic to their backend(s). Load balancers have a few general attributes:
+ Frontend Where clients reach the load balancer, the &amp;ldquo;face&amp;rdquo; of the load balancer.</description>
+    </item>
+    
+  </channel>
+</rss>
