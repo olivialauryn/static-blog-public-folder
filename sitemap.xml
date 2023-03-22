@@ -2,10 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/automation/</loc>
-    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+    <loc>/test/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cloud/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/code/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/gcp/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/networking/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/terraform/</loc>
+    <lastmod>2023-03-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/automation/</loc>
     <lastmod>2022-01-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/home-lab/</loc>
@@ -14,16 +38,7 @@
     <loc>/ansible/</loc>
     <lastmod>2022-01-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/raspberrypi/</loc>
-    <lastmod>2022-01-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-01-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/replace-json-values/</loc>
@@ -70,9 +85,6 @@
   </url><url>
     <loc>/vmware-and-vsphere/</loc>
     <lastmod>2020-07-01T16:29:16+00:00</lastmod>
-  </url><url>
-    <loc>/tags/cloud/</loc>
-    <lastmod>2020-06-25T16:41:36+00:00</lastmod>
   </url><url>
     <loc>/cognitive-services-translation/</loc>
     <lastmod>2020-06-25T16:41:36+00:00</lastmod>
