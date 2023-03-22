@@ -105,32 +105,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>gcp</title>
-      <link>/tags/gcp/</link>
-      <pubDate>Wed, 31 Dec 1969 19:33:43 -0500</pubDate>
-      
-      <guid>/tags/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>networking</title>
-      <link>/tags/networking/</link>
-      <pubDate>Wed, 31 Dec 1969 19:33:43 -0500</pubDate>
-      
-      <guid>/tags/networking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terraform</title>
-      <link>/tags/terraform/</link>
-      <pubDate>Wed, 31 Dec 1969 19:33:43 -0500</pubDate>
-      
-      <guid>/tags/terraform/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
