@@ -7,15 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 22 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>BUILDING LOAD BALANCERS</title>
-      <link>/test/</link>
+      <title>BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM</title>
+      <link>/building-load-balancers-in-gcp-with-terraform/</link>
       <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>/test/</guid>
-      <description>What is a Load Balancer? Load balancers are networking resources that take in network traffic through their frontend and distribute that traffic to their backend(s). Load balancers have a few general attributes:
-  Frontend Where clients reach the load balancer, the &amp;ldquo;face&amp;rdquo; of the load balancer.
-  Backend The server(s) where the load balancer directs traffic
-  Forwarding Rules The logic the load balancer uses to distribute traffic.</description>
+      <guid>/building-load-balancers-in-gcp-with-terraform/</guid>
+      <description>If you ever try to write Terraform code to create a load balancer in GCP you may find it is not as straightforward as you would like. There is not a single Terraform resource to create a GCP load balancer, and making sure the load balancer is configured to do what you need can be difficult.
+However if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating load balancers in GCP using Terraform is possible.</description>
     </item>
     
     <item>
