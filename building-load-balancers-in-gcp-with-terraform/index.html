@@ -4,16 +4,16 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM &middot; </title>
-        <meta name="description" content="If you ever try to write Terraform code to create a load balancer in GCP you may find it is not as straightforward as you would like. There is not a single Terraform resource to create a GCP load balancer, and making sure the load balancer is configured to do what you need can be difficult.
-However if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating load balancers in GCP using Terraform is possible.">
+        <meta name="description" content="Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you&rsquo;ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation here.
+However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.87.0" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM">
-<meta property="og:description" content="If you ever try to write Terraform code to create a load balancer in GCP you may find it is not as straightforward as you would like. There is not a single Terraform resource to create a GCP load balancer, and making sure the load balancer is configured to do what you need can be difficult.
-However if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating load balancers in GCP using Terraform is possible.">
+<meta property="og:description" content="Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you&rsquo;ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation here.
+However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/building-load-balancers-in-gcp-with-terraform/">
         <link rel="stylesheet" href="/dist/site.css">
@@ -88,8 +88,8 @@ However if you have an understanding of how load balancers work internally, and 
     
 
     <p><img src="/building-a-lb-with-tf-logo.png" alt=""></p>
-<p>If you ever try to write Terraform code to create a load balancer in GCP you may find it is not as straightforward as you would like. There is not a single Terraform resource to create a GCP load balancer, and making sure the load balancer is configured to do what you need can be difficult.</p>
-<p>However if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating load balancers in GCP using Terraform is possible.</p>
+<p>Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you&rsquo;ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation <a href="https://cloud.google.com/load-balancing/docs/load-balancing-overview">here</a>.</p>
+<p>However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible. This can allow you to configure your LBs to do exactly what you need.</p>
 <h2 id="what-is-a-load-balancer">What is a Load Balancer?</h2>
 <p>Load balancers are networking resources that take in network traffic through their frontend and distribute that traffic to their backend(s). Load balancers have a few basic parts you should know:</p>
 <ul>
@@ -103,7 +103,7 @@ The server(s) where the load balancer directs traffic</p>
 </li>
 <li>
 <p><strong>Forwarding Rules</strong>
-The logic the load balancer uses to distribute traffic. Also referred to as a load balancer&rsquo;s algorithm.</p>
+The logic the load balancer uses to distribute traffic. Also referred to as a load balancer&rsquo;s &ldquo;algorithm&rdquo;.</p>
 </li>
 <li>
 <p><strong>Health Checks</strong>
@@ -117,7 +117,7 @@ Checks the status of the backend(s) and whether they can recieve traffic. Load b
 <p>Deciding how to route traffic to a load balancer&rsquo;s backends depends on the use case. For example, if a network admin has 2 servers and server 1 can handle more requests than server 2, then the load balancer can be configured to use a weighted rule which will send more traffic to server 1.</p>
 <p>However if a network admin has 2 servers with the same processing power they can confgure the load balancer to use a least connection rule which will send traffic to the server that is the most available at the time.</p>
 <h2 id="gcp-load-balancers">GCP Load Balancers</h2>
-<p>Load balancers can exist in the cloud as well as on-premises networks. This post will primarily focus on internal/external TCP/HTTPS cloud-based load balancers in GCP, although similar load balancers exist in AWS and Azure cloud platforms. Load balancers in GCP work just like load balancers in any other network, with the exception that some or all of the traffic of GCP load balancers is betweek GCP cloud resources.</p>
+<p>Load balancers can exist in the cloud as well as on-premises networks. This post will primarily focus on internal/external TCP/HTTPS cloud-based load balancers in GCP, although similar load balancers exist in AWS and Azure cloud platforms. Load balancers in GCP work just like load balancers in any other network, with the exception that some or all of the traffic of GCP load balancers is between GCP cloud resources.</p>
 <p>When creating a load balancer  in GCP, it is important to understand the different types of load balancers supported.</p>
 <h3 id="internal-and-external-load-balancers">Internal and External Load Balancers</h3>
 <p>GCP supports 2 options for the IP address of their load balancers, internal and external.</p>
