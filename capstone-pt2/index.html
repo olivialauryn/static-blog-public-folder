@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
-    <head>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>DETECTING OBJECTS WITH CODE - Capstone Pt.2 &middot; </title>
+        <title>DETECTING OBJECTS WITH CODE - Capstone Pt.2 &middot; Olivia</title>
         <meta name="description" content="In my first Capstone post I gave a rundown of basic AI terms and how to use Tensorflow to create your own machine learning (ML) script.
-I&rsquo;m using Tensorflow to write a script that can process images of roads and determine whether there is an obstacle in the road or not. Since I&rsquo;m studying self-driving cars, I&rsquo;d like to see if using biased data to train an object detection script affects the model&rsquo;s performance.">
+I&rsquo;m using Tensorflow to write a script that can process images of roads and determine whether there is an obstacle in the road or not. Since I&rsquo;m studying self-driving cars, I&rsquo;d like to see if using biased data to train an object detection script affects the model&rsquo;s performance. To do this, I&rsquo;m using a training dataset of clear, bright road images to train a neural network and then testing that script with corrupted images of roads. If the model can&rsquo;t recognize obstacles in images that are corrupted, then the biased training dataset did have an affect on the model.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.87.0" />
+        <meta name="generator" content="Hugo 0.157.0">
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="DETECTING OBJECTS WITH CODE - Capstone Pt.2">
 <meta property="og:description" content="In my first Capstone post I gave a rundown of basic AI terms and how to use Tensorflow to create your own machine learning (ML) script.
-I&rsquo;m using Tensorflow to write a script that can process images of roads and determine whether there is an obstacle in the road or not. Since I&rsquo;m studying self-driving cars, I&rsquo;d like to see if using biased data to train an object detection script affects the model&rsquo;s performance.">
+I&rsquo;m using Tensorflow to write a script that can process images of roads and determine whether there is an obstacle in the road or not. Since I&rsquo;m studying self-driving cars, I&rsquo;d like to see if using biased data to train an object detection script affects the model&rsquo;s performance. To do this, I&rsquo;m using a training dataset of clear, bright road images to train a neural network and then testing that script with corrupted images of roads. If the model can&rsquo;t recognize obstacles in images that are corrupted, then the biased training dataset did have an affect on the model.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="/capstone-pt2/">
-        <link rel="stylesheet" href="/dist/site.css">
-        <link rel="stylesheet" href="/dist/syntax.css">
+<meta property="og:url" content="//localhost:1313/capstone-pt2/">
+        <link rel="stylesheet" href="//localhost:1313/dist/site.css">
+        <link rel="stylesheet" href="//localhost:1313/dist/syntax.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
@@ -36,7 +36,7 @@ I&rsquo;m using Tensorflow to write a script that can process images of roads an
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a href="/">Olivia Snowden&#39;s Blog</a>
+                                <a href="//localhost:1313/">Olivia Snowden&#39;s Blog</a>
                             </h1>
                         
                         
@@ -77,7 +77,7 @@ I&rsquo;m using Tensorflow to write a script that can process images of roads an
         <span>by</span>
         <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
-                <a href="#" itemprop="url" rel="author">osnowden</a>
+                <a href="Olivia" itemprop="url" rel="author">osnowden</a>
             </span>
         </span>
     </p>
@@ -163,7 +163,7 @@ I&rsquo;m using Tensorflow to write a script that can process images of roads an
                 <a href="/tags/ai/">AI</a>
         </p>
     <div class="share">
-            <a class="icon-twitter" href="https://twitter.com/share?text=DETECTING%20OBJECTS%20WITH%20CODE%20-%20Capstone%20Pt.2&url=%2fcapstone-pt2%2f"
+            <a class="icon-twitter" href="https://twitter.com/share?text=DETECTING%20OBJECTS%20WITH%20CODE%20-%20Capstone%20Pt.2&url=%2f%2flocalhost%3a1313%2fcapstone-pt2%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
@@ -181,7 +181,7 @@ I&rsquo;m using Tensorflow to write a script that can process images of roads an
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a href="/">Olivia Snowden&#39;s Blog</a>
+                        <a href="//localhost:1313/">Olivia Snowden&#39;s Blog</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -189,18 +189,15 @@ I&rsquo;m using Tensorflow to write a script that can process images of roads an
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2023 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
-                </p>
-                <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
                     <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
                 </p>
             </div>
         </footer>
 
-        <script src="/js/jquery-1.11.3.min.js"></script>
-        <script src="/js/jquery.fitvids.js"></script>
-        <script src="/js/scripts.js"></script>
+        <script src="//localhost:1313/js/jquery-1.11.3.min.js"></script>
+        <script src="//localhost:1313/js/jquery.fitvids.js"></script>
+        <script src="//localhost:1313/js/scripts.js"></script>
     </body>
 </html>
 

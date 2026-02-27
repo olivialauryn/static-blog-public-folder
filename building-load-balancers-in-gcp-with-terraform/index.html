@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
-    <head>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM &middot; </title>
-        <meta name="description" content="Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you&rsquo;ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation here.
-However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible.">
+        <title>BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM &middot; Olivia</title>
+        <meta name="description" content="
+Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you&rsquo;ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation here.
+However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible. This can allow you to configure your LBs to do exactly what you need.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.87.0" />
+        <meta name="generator" content="Hugo 0.157.0">
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM">
-<meta property="og:description" content="Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you&rsquo;ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation here.
-However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible.">
+<meta property="og:description" content="
+Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you&rsquo;ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation here.
+However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible. This can allow you to configure your LBs to do exactly what you need.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="/building-load-balancers-in-gcp-with-terraform/">
-        <link rel="stylesheet" href="/dist/site.css">
-        <link rel="stylesheet" href="/dist/syntax.css">
+<meta property="og:url" content="//localhost:1313/building-load-balancers-in-gcp-with-terraform/">
+        <link rel="stylesheet" href="//localhost:1313/dist/site.css">
+        <link rel="stylesheet" href="//localhost:1313/dist/syntax.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
@@ -36,7 +38,7 @@ However, if you have an understanding of how load balancers work internally, and
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a href="/">Olivia Snowden&#39;s Blog</a>
+                                <a href="//localhost:1313/">Olivia Snowden&#39;s Blog</a>
                             </h1>
                         
                         
@@ -77,7 +79,7 @@ However, if you have an understanding of how load balancers work internally, and
         <span>by</span>
         <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
-                <a href="#" itemprop="url" rel="author">osnowden</a>
+                <a href="Olivia" itemprop="url" rel="author">osnowden</a>
             </span>
         </span>
     </p>
@@ -157,33 +159,33 @@ Checks the status of the backend(s) and whether they can recieve traffic. Load b
 <p>Creating rules based on the host and path of a request allows you to route traffic coming from specific points to specific backends.</p>
 <p>Host rules match the host name of a request, like &ldquo;example.com&rdquo;. Each host rule has a path matcher rule that specifies the what path from that host should go to what backend. The most simple path mather rule is &ldquo;/*&rdquo; which matches all paths.</p>
 <p>The <strong>&ldquo;google_compute_url_map&rdquo;</strong> resource accepts host and path matcher variables, for example:</p>
-<pre><code>resource &quot;google_compute_url_map&quot; &quot;urlmap&quot; {
- name        = &quot;my-urlmap&quot;
- description = &quot;Example url map&quot;
+<pre tabindex="0"><code>resource &#34;google_compute_url_map&#34; &#34;urlmap&#34; {
+ name        = &#34;my-urlmap&#34;
+ description = &#34;Example url map&#34;
 
  default_service = google_compute_backend_bucket.static.id
 
  host_rule {
-   hosts        = [&quot;example.com&quot;]
-   path_matcher = &quot;example&quot;
+   hosts        = [&#34;example.com&#34;]
+   path_matcher = &#34;example&#34;
  }
 
  path_matcher {
-   name            = &quot;example&quot;
+   name            = &#34;example&#34;
    default_service = google_compute_backend_bucket.home.id
 
    path_rule {
-     paths   = [&quot;/home&quot;]
+     paths   = [&#34;/home&#34;]
      service = google_compute_backend_bucket.home.id
    }
 
    path_rule {
-     paths   = [&quot;/login&quot;]
+     paths   = [&#34;/login&#34;]
      service = google_compute_backend_service.login.id
    }
 
    path_rule {
-     paths   = [&quot;/static&quot;]
+     paths   = [&#34;/static&#34;]
      service = google_compute_backend_bucket.static.id
    }
  }
@@ -192,68 +194,68 @@ Checks the status of the backend(s) and whether they can recieve traffic. Load b
 <p>In addition to host/path rules, the url map resource accepts many other arguments you may want to use for your load balancer. The Terraform registry includes a complete <a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_url_map#argument-reference">list of arguments.</a></p>
 <h2 id="example">Example</h2>
 <p>Below is a basic example of Terraform code that creates an external HTTPS load balancer in GCP that uses a NEG (network endpoint group) as a backend.</p>
-<pre><code># Create network endpoint
-resource &quot;google_compute_global_network_endpoint&quot; &quot;default&quot; {
+<pre tabindex="0"><code># Create network endpoint
+resource &#34;google_compute_global_network_endpoint&#34; &#34;default&#34; {
  global_network_endpoint_group = google_compute_global_network_endpoint_group.default.name
- fqdn                          = &quot;www.example.com&quot;
+ fqdn                          = &#34;www.example.com&#34;
  port                          = 90
 }
 
 # Add network endpoint to network endpoint group
-resource &quot;google_compute_global_network_endpoint_group&quot; &quot;default&quot; {
- name                  = &quot;example-neg&quot;
- default_port          = &quot;90&quot;
- network_endpoint_type = &quot;INTERNET_FQDN_PORT&quot;
+resource &#34;google_compute_global_network_endpoint_group&#34; &#34;default&#34; {
+ name                  = &#34;example-neg&#34;
+ default_port          = &#34;90&#34;
+ network_endpoint_type = &#34;INTERNET_FQDN_PORT&#34;
 }
 
 # Since this is an external LB it needs a SSL certificate
-resource &quot;google_compute_managed_ssl_certificate&quot; &quot;default&quot; {
- name = &quot;example-cert&quot;
+resource &#34;google_compute_managed_ssl_certificate&#34; &#34;default&#34; {
+ name = &#34;example-cert&#34;
 
  managed {
-   domains = [&quot;example&quot;]
+   domains = [&#34;example&#34;]
  }
 }
 
 # Forwarding rule
-resource &quot;google_compute_global_forwarding_rule&quot; &quot;example&quot; {
- name                  = &quot;example-forwarding-rule&quot;
+resource &#34;google_compute_global_forwarding_rule&#34; &#34;example&#34; {
+ name                  = &#34;example-forwarding-rule&#34;
  provider              = google-beta
- port_range            = &quot;443&quot;
+ port_range            = &#34;443&#34;
  target                = google_compute_target_https_proxy.default.self_link
  ip_address            = google_compute_global_address.default.address
 }
 
 # Public IP address
-resource &quot;google_compute_global_address&quot; &quot;default&quot; {
+resource &#34;google_compute_global_address&#34; &#34;default&#34; {
  provider      = google-beta
- name          = &quot;example-address&quot;
- ip_version    = &quot;IPV4&quot;
+ name          = &#34;example-address&#34;
+ ip_version    = &#34;IPV4&#34;
 }
 
 # HTTPS proxy 
-resource &quot;google_compute_target_https_proxy&quot; &quot;default&quot; {
- name             = &quot;example-proxy&quot;
+resource &#34;google_compute_target_https_proxy&#34; &#34;default&#34; {
+ name             = &#34;example-proxy&#34;
  url_map          = google_compute_url_map.default.id
  ssl_certificates = [google_compute_managed_ssl_certificate.default.id]
 }
 
 # URL Map
-resource &quot;google_compute_url_map&quot; &quot;default&quot; {
- name        = &quot;example-urlmap&quot;
- description = &quot;Example url map&quot;
+resource &#34;google_compute_url_map&#34; &#34;default&#34; {
+ name        = &#34;example-urlmap&#34;
+ description = &#34;Example url map&#34;
 
  default_service = google_compute_backend_service.default.id
  }
 
 # Make NEG the backend
-resource &quot;google_compute_backend_service&quot; &quot;default&quot; {
- name          = &quot;example-backend-service&quot;
- port_name     = &quot;https&quot;
- protocol      = &quot;HTTPS&quot;
+resource &#34;google_compute_backend_service&#34; &#34;default&#34; {
+ name          = &#34;example-backend-service&#34;
+ port_name     = &#34;https&#34;
+ protocol      = &#34;HTTPS&#34;
  backend {
    group = google_compute_global_network_endpoint_group.default.self_link
-   balancing_mode = &quot;UTILIZATION&quot;
+   balancing_mode = &#34;UTILIZATION&#34;
    capacity_saler = 1.0
  }
 }
@@ -270,7 +272,7 @@ resource &quot;google_compute_backend_service&quot; &quot;default&quot; {
                 <a href="/tags/cloud/">cloud</a>
         </p>
     <div class="share">
-            <a class="icon-twitter" href="https://twitter.com/share?text=BUILDING%20LOAD%20BALANCERS%20IN%20GCP%20WITH%20TERRAFORM&url=%2fbuilding-load-balancers-in-gcp-with-terraform%2f"
+            <a class="icon-twitter" href="https://twitter.com/share?text=BUILDING%20LOAD%20BALANCERS%20IN%20GCP%20WITH%20TERRAFORM&url=%2f%2flocalhost%3a1313%2fbuilding-load-balancers-in-gcp-with-terraform%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
@@ -288,7 +290,7 @@ resource &quot;google_compute_backend_service&quot; &quot;default&quot; {
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a href="/">Olivia Snowden&#39;s Blog</a>
+                        <a href="//localhost:1313/">Olivia Snowden&#39;s Blog</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -296,18 +298,15 @@ resource &quot;google_compute_backend_service&quot; &quot;default&quot; {
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2023 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
-                </p>
-                <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
                     <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
                 </p>
             </div>
         </footer>
 
-        <script src="/js/jquery-1.11.3.min.js"></script>
-        <script src="/js/jquery.fitvids.js"></script>
-        <script src="/js/scripts.js"></script>
+        <script src="//localhost:1313/js/jquery-1.11.3.min.js"></script>
+        <script src="//localhost:1313/js/jquery.fitvids.js"></script>
+        <script src="//localhost:1313/js/scripts.js"></script>
     </body>
 </html>
 

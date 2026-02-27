@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
-    <head>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>BASH BASICS &middot; </title>
+        <title>BASH BASICS &middot; Olivia</title>
         <meta name="description" content="Bash, or the Bourne-Again SHell, is named after the creator of the Unix shell Stephen Bourn. Bash is a command language interpreter that can execute commands and process text files as input. Shell scripts are, basically, files containing a series of commands. You can schedule Bash scripts to run at certain times to automate tasks for you.
-If you are using a Linux machine, you can write and execute Bash scripts in terminal.">
+If you are using a Linux machine, you can write and execute Bash scripts in terminal. Through the terminal you can use your preferred text editor (nano, vim, etc.) to write your script and save it with the extension .sh. If you are using a MacBook, like me, you can use the terminal or Visual Studio Code to write Bash scripts- just save them with the .bash extension.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.87.0" />
+        <meta name="generator" content="Hugo 0.157.0">
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="BASH BASICS">
 <meta property="og:description" content="Bash, or the Bourne-Again SHell, is named after the creator of the Unix shell Stephen Bourn. Bash is a command language interpreter that can execute commands and process text files as input. Shell scripts are, basically, files containing a series of commands. You can schedule Bash scripts to run at certain times to automate tasks for you.
-If you are using a Linux machine, you can write and execute Bash scripts in terminal.">
+If you are using a Linux machine, you can write and execute Bash scripts in terminal. Through the terminal you can use your preferred text editor (nano, vim, etc.) to write your script and save it with the extension .sh. If you are using a MacBook, like me, you can use the terminal or Visual Studio Code to write Bash scripts- just save them with the .bash extension.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="/bash-basics/">
-        <link rel="stylesheet" href="/dist/site.css">
-        <link rel="stylesheet" href="/dist/syntax.css">
+<meta property="og:url" content="//localhost:1313/bash-basics/">
+        <link rel="stylesheet" href="//localhost:1313/dist/site.css">
+        <link rel="stylesheet" href="//localhost:1313/dist/syntax.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
@@ -36,7 +36,7 @@ If you are using a Linux machine, you can write and execute Bash scripts in term
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a href="/">Olivia Snowden&#39;s Blog</a>
+                                <a href="//localhost:1313/">Olivia Snowden&#39;s Blog</a>
                             </h1>
                         
                         
@@ -77,7 +77,7 @@ If you are using a Linux machine, you can write and execute Bash scripts in term
         <span>by</span>
         <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
-                <a href="#" itemprop="url" rel="author">osnowden</a>
+                <a href="Olivia" itemprop="url" rel="author">osnowden</a>
             </span>
         </span>
     </p>
@@ -93,7 +93,7 @@ If you are using a Linux machine, you can write and execute Bash scripts in term
 <h4 id="set-up-execution-and-redirection">Set-up, Execution, and Redirection</h4>
 <p>The Bash shell scripting language allows for loops, selection statements, input/output, and functions like other programming languages.  Each shell script starts with a comment that states which interpreter to use to run the script. For Bash, begin each file with the shebang: <code>#!/bin/bash</code>.</p>
 <p>To execute a Bash script, you must first change the permissions of the file using <code>chmod 755 _script_name_</code>. Then, you can execute a script by running <code>./script_name</code> on the command line or by hitting the play button in Visual Studio Code.</p>
-<p>Sometimes it can be useful to redirect Bash input/output. <code>script_name&gt; filename</code> will redirect output to a file, <code>script_name &gt;&gt; filename</code> will append the output of the bash script to an existing file, and <code>script_name&lt; filename</code> redirects a file as input to a script.</p>
+<p>Sometimes it can be useful to redirect Bash input/output. <code>script_name&gt; contentbasename</code> will redirect output to a file, <code>script_name &gt;&gt; contentbasename</code> will append the output of the bash script to an existing file, and <code>script_name&lt; contentbasename</code> redirects a file as input to a script.</p>
 <h4 id="variables-and-math">Variables and Math</h4>
 <p>The body of a Bash script can consist of variables, commands, and arithmetic operations. Variables are a basic building block of Bash scripts. <code>VARIABLE=VALUE</code> is the basic assignment statement, notice there are no spaces. To call a variable in a Bash script, use<code> $VARIABLE</code>. The &ldquo;print statement&rdquo; for Bash scripting is echo. If you want to output something to the user use <code>echo &quot;statement&quot;/$VARIABLE</code>.</p>
 <p>If you want to assign an interpreted value with spaces to a variable, you must include double quotes around the value. If you want to interpret the value with spaces literally, use single quotes. Below is an example of a Bash script and its output that shows the difference between single and double quotes.</p>
@@ -126,7 +126,7 @@ If you are using a Linux machine, you can write and execute Bash scripts in term
                 <a href="/tags/linux/">linux</a>
         </p>
     <div class="share">
-            <a class="icon-twitter" href="https://twitter.com/share?text=BASH%20BASICS&url=%2fbash-basics%2f"
+            <a class="icon-twitter" href="https://twitter.com/share?text=BASH%20BASICS&url=%2f%2flocalhost%3a1313%2fbash-basics%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
@@ -144,7 +144,7 @@ If you are using a Linux machine, you can write and execute Bash scripts in term
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a href="/">Olivia Snowden&#39;s Blog</a>
+                        <a href="//localhost:1313/">Olivia Snowden&#39;s Blog</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -152,18 +152,15 @@ If you are using a Linux machine, you can write and execute Bash scripts in term
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2023 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
-                </p>
-                <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
                     <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
                 </p>
             </div>
         </footer>
 
-        <script src="/js/jquery-1.11.3.min.js"></script>
-        <script src="/js/jquery.fitvids.js"></script>
-        <script src="/js/scripts.js"></script>
+        <script src="//localhost:1313/js/jquery-1.11.3.min.js"></script>
+        <script src="//localhost:1313/js/jquery.fitvids.js"></script>
+        <script src="//localhost:1313/js/scripts.js"></script>
     </body>
 </html>
 
