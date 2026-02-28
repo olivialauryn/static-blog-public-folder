@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Olivia Snowden&#39;s Blog</title>
     <link>//localhost:1313/categories/</link>
     <description>Recent content in Categories on Olivia Snowden&#39;s Blog</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.157.0</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Jun 2020 19:24:25 +0000</lastBuildDate>
+    <copyright>PaperMod Contributors</copyright>
     <atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Home-Lab</title>
-      <link>//localhost:1313/categories/home-lab/</link>
-      <pubDate>Wed, 17 Jun 2020 19:24:25 +0000</pubDate>
-      <guid>//localhost:1313/categories/home-lab/</guid>
+      <title>Syntax</title>
+      <link>//localhost:1313/categories/syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/syntax/</guid>
       <description></description>
     </item>
     <item>
-      <title>Linux</title>
-      <link>//localhost:1313/categories/linux/</link>
-      <pubDate>Wed, 17 Jun 2020 19:24:25 +0000</pubDate>
-      <guid>//localhost:1313/categories/linux/</guid>
+      <title>Themes</title>
+      <link>//localhost:1313/categories/themes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/themes/</guid>
       <description></description>
     </item>
   </channel>
