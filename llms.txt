@@ -1,7 +1,6 @@
 # Olivia Snowden's Blog
 
 ## Posts
-- [TESTING BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM](//localhost:1313/testing-post/)
 - [BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM](//localhost:1313/building-load-balancers-in-gcp-with-terraform/)
 - [INTRODUCTION TO ANSIBLE](//localhost:1313/ansible/)
 - [AUTOMATE REPLACING VALUES IN JSON USING PYTHON](//localhost:1313/replace-json-values/)

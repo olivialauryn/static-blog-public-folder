@@ -11,7 +11,7 @@
 <meta name="description" content="The Cloud &#43; AI &#43; Linux &#43; More">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="//localhost:1313/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="//localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
@@ -22,8 +22,6 @@
 <link rel="alternate" type="application/rss+xml" href="//localhost:1313/index.xml" title="rss">
 <link rel="alternate" type="application/json" href="//localhost:1313/index.json" title="json">
 <link rel="alternate" hreflang="en" href="//localhost:1313/">
-<link rel="alternate" hreflang="fr" href="//localhost:1313/fr/">
-<link rel="alternate" hreflang="fa" href="//localhost:1313/fa/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,7 +92,7 @@
   "description": "The Cloud + AI + Linux + More",
   "logo": "//localhost:1313/favicon.ico",
   "sameAs": [
-      
+      "www.linkedin.com/in/olivialaurynsnowden", "https://github.com/olivialauryn"
   ]
 }
 </script>
@@ -125,16 +123,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                    <ul class="lang-switch"><li>|</li>
-                        <li>
-                            <a href="//localhost:1313/fr/" title="French"
-                                aria-label=":fr:">🇫🇷</a>
-                        </li>
-                        <li>
-                            <a href="//localhost:1313/fa/" title="Fa"
-                                aria-label="Fa">Fa</a>
-                        </li>
-                    </ul>
             </div>
         </div>
         <ul id="menu">
@@ -144,7 +132,7 @@
                 </a>
             </li>
             <li>
-                <a href="//localhost:1313/search/" title="Search">
+                <a href="//localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -168,20 +156,36 @@
     </nav>
 </header>
 <main class="main"> 
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>My alphabet soup: AI, GCP, AWS, IaC &#x1f963;</h1>
+    </header>
+    <div class="entry-content">
+        This is a living resume of my favorite computer projects
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons" >
+    <a href="www.linkedin.com/in/olivialaurynsnowden" target="_blank" rel="noopener noreferrer me"
+        title="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+    </a>
+    <a href="https://github.com/olivialauryn" target="_blank" rel="noopener noreferrer me"
+        title="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+    </a>
+</div>
 
-<article class="first-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">TESTING BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you’ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation here.
-However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible. This can allow you to configure your LBs to do exactly what you need.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2026-02-28 00:00:00 +0000 UTC'>Sat, Feb 28, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Olivia Snowden</span></footer>
-  <a class="entry-link" aria-label="post link to TESTING BUILDING LOAD BALANCERS IN GCP WITH TERRAFORM" href="//localhost:1313/testing-post/"></a>
+    </footer>
 </article>
 
 <article class="post-entry"> 
@@ -251,6 +255,19 @@ Most websites we visit are dynamic websites, meaning that a web server generates
   </div>
   <footer class="entry-footer"><span title='2021-08-30 00:00:00 +0000 UTC'>Mon, Aug 30, 2021</span>&nbsp;·&nbsp;<span>9 min</span>&nbsp;·&nbsp;<span>Olivia Snowden</span></footer>
   <a class="entry-link" aria-label="post link to STATIC BLOG WITH HUGO, GIT, & AWS" href="//localhost:1313/static-blog/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PYTHON METHODS &amp; CLASSES
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Once you get past your first “Hello World” Python script, it’s good to learn how to use Python methods and classes. Methods and **functions **are a self-contained block of code that can be reused over and over. There are built-in functions that beginners in Python may already be familiar with, like print() and sum(). A user can also define a function (called a user-defined function) that executes a task they need done in their script multiple times. This is especially useful because it keeps the user from having to write that same chunk of code repeatedly. Variables that exist outside of the function can be passed to the function as parameters, but they are not required. The format of defining your own function is below:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-01-18 00:00:00 +0000 UTC'>Mon, Jan 18, 2021</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Olivia Snowden</span></footer>
+  <a class="entry-link" aria-label="post link to PYTHON METHODS & CLASSES" href="//localhost:1313/python-methods/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
