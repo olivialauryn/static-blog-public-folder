@@ -14,7 +14,7 @@ sudo apt install docker-compose
 Compose is a useful Docker tool that, among other things, allows you to run multi-container applications configured in a YAML file.  On Docker Hub a useful photo gallery image linuxserver/photoshow has already been created, so I used that image to serve up the bird photos.  At this point, I had already configured an NFS server and made this Pi an NFS client via a shared folder. To create the photo gallery, I first signed into my personal Docker account. I then added two subdirectories to my home directory on the Pi: a config directory, and a thumbs directory.">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/birdcam-pt3/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -268,7 +268,7 @@ services:
 <pre><code>sudo docker-compose up -d
 </code></pre>
 <p>To view the photo gallery, all I have to do is enter the IP of the Pi running the image followed by &ldquo;:80&rdquo; since the YAML file configured port 80 to run the website. There, after making an account, I can view new bird photos everyday.</p>
-<p><img alt="The gallery of my bird photos " loading="lazy" src="http://localhost:1313/birdcam-1.png"></p>
+<p><img alt="The gallery of my bird photos " loading="lazy" src="/birdcam-1.png"></p>
 <p>For this project, one Raspberry Pi Zero W was outfitted with a camera scheduled to take photos all day long. The Zero mapped those photos to a shared folder with an NFS server, which in turn shared those photos with another Pi running Docker&rsquo;s photoshow image.</p>
 
 

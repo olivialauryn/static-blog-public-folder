@@ -12,7 +12,7 @@ Neural Network Basics
 First, what is artificial intelligence (AI)? AI is a field of computer science pertaining to programming computers so that they demonstrate human-like intelligence.">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/capstone-pt1/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -247,13 +247,13 @@ First, what is artificial intelligence (AI)? AI is a field of computer science p
 <h4 id="neural-network-basics">Neural Network Basics<a hidden class="anchor" aria-hidden="true" href="#neural-network-basics">#</a></h4>
 <p>First, what is <strong>artificial intelligence</strong> (AI)? AI is a field of computer science pertaining to programming computers so that they demonstrate human-like intelligence.</p>
 <p><strong>Machine learning</strong> (ML) is a subset of AI that allows algorithms to learn by working on training data before being exposed to real-world problems. Furthermore,** neural networks** (NNs) are a subset of ML that mimics the human brain to make decisions. Most NNs are multi-layered networks that consist of 1 input layer, 1 output layer, and 1+ hidden layers in between. If there are many hidden layers, the NN is considered a** deep neural network **(DNN).</p>
-<p><img alt="A deep neural network " loading="lazy" src="http://localhost:1313/capstone-1.jpeg"></p>
+<p><img alt="A deep neural network " loading="lazy" src="/capstone-1.jpeg"></p>
 <p>The layers in a NN are made up of <strong>neurons</strong> that, in short, take in a value and spit out a value. Each neuron in one layer is connected to all the neurons in the next layer. The number of input neurons is the number of features that the NN will work with. In turn, the number of output neurons is the number of predictions that you want the NN to make. The value that a neuron holds is its activation. The <strong>activation function</strong> of a neuron is an equation that determines whether the neuron should be activated, AKA &ldquo;fired&rdquo;, or not. They also help normalize the output of the neurons to be in a small range, usually between 1 and 0 or -1 and 1.</p>
 <p>Weights and biases are the parameters that allow a NN to &ldquo;learn&rdquo;. <strong>Weight</strong> affects how much the input will influence the output - how strong the connections between two neurons are.   <strong>Bias,</strong> which stores the value 1, are often added to each layer in a NN to move the activation function left or right. It represents the difference between the function&rsquo;s output and it&rsquo;s intended output. Bias serves as a constant that allows the NN to become more flexible and helps control when the activation function will trigger.</p>
-<p><img alt="Basic process of a neuron in a neural network" loading="lazy" src="http://localhost:1313/capstone-2.png"></p>
+<p><img alt="Basic process of a neuron in a neural network" loading="lazy" src="/capstone-2.png"></p>
 <p>**Cost functions **help the network learn which changes matter most and reflects how the network is performing. The cost is small when the network is confident, but large when it isn&rsquo;t sure what it&rsquo;s doing. The NN learns by finding the right weights and biases to minimize that cost, this is called <strong>gradient descent</strong>. Applying gradient descent to the cost function allows the NN to find weights that result in lower error and makes the NN more accurate over time.</p>
 <p><strong>Backpropagation</strong> is the process of nudging the weights and biases to decrease cost working from the output layer backwards-after the NN has worked through data. A DNN can loop through its layers using backpropagation: data enters the network through the input layer, is worked on in the hidden layers, and exits through the output layer only to be fed back into the network with updated weights and biases to improve performance.</p>
-<p><img alt="Backpropogation in a NN" loading="lazy" src="http://localhost:1313/capstone-3.png"></p>
+<p><img alt="Backpropogation in a NN" loading="lazy" src="/capstone-3.png"></p>
 <h4 id="tensorflow-basics">TensorFlow Basics<a hidden class="anchor" aria-hidden="true" href="#tensorflow-basics">#</a></h4>
 <p>TensorFlow is a free software for machine learning, including pre-trained models, datasets, and tutorials. A tensor is a type of data structure, like a vector or matrix, that is basically a multidimensional array.</p>
 <p><img loading="lazy" src="capstone-4.jpeg"></p>
@@ -261,7 +261,7 @@ First, what is artificial intelligence (AI)? AI is a field of computer science p
 <p>Keras is the high-level API used by TensorFlow that provides a Python interface for NNs. To get started with TensorFlow I used Google Colab, which allows you to write and execute python in your browser. Colab is especially useful for people like myself, who work from a small laptop that wouldn&rsquo;t be able to handle the compute power required when working with DNNs.</p>
 <h4 id="neural-net-with-tensorflow-example">Neural Net with TensorFlow-Example<a hidden class="anchor" aria-hidden="true" href="#neural-net-with-tensorflow-example">#</a></h4>
 <p>The first NN that I created using TensorFlow is basically the &ldquo;Hello World&rdquo; of NNs. It is a pretty common example you&rsquo;ll see if you research TensorFlow tutorials. Using the MNIST handwritten digit database, I trained a NN to recognize images of numbers using Python:</p>
-<p><img loading="lazy" src="http://localhost:1313/capstone-5.png"></p>
+<p><img loading="lazy" src="/capstone-5.png"></p>
 <p>First I imported tensorflow, keras, layers (to create the layers of the NN), and the MNSIT dataset:</p>
 <pre><code>&lt;code&gt;import tensorflow as tf
 from tensorflow import keras

@@ -12,7 +12,7 @@ Networking in GCP, or any cloud environment, often requires a load balancer(LB).
 However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible. This can allow you to configure your LBs to do exactly what you need.">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/building-load-balancers-in-gcp-with-terraform/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -265,7 +265,7 @@ However, if you have an understanding of how load balancers work internally, and
     </details>
 </div>
 
-  <div class="post-content"><p><img loading="lazy" src="http://localhost:1313/building-a-lb-with-tf-logo.png"></p>
+  <div class="post-content"><p><img loading="lazy" src="/building-a-lb-with-tf-logo.png"></p>
 <p>Networking in GCP, or any cloud environment, often requires a load balancer(LB). If you try to use Terraform to deploy a load balancer in GCP you&rsquo;ll notice that there is not a single Terraform resource to create a GCP LB. GCP provides example Terraform scripts to create LBs in their documentation <a href="https://cloud.google.com/load-balancing/docs/load-balancing-overview">here</a>.</p>
 <p>However, if you have an understanding of how load balancers work internally, and how to properly structure your Terraform code, creating your own LB modules in GCP using Terraform is possible. This can allow you to configure your LBs to do exactly what you need.</p>
 <h2 id="what-is-a-load-balancer">What is a Load Balancer?<a hidden class="anchor" aria-hidden="true" href="#what-is-a-load-balancer">#</a></h2>
@@ -287,7 +287,7 @@ The logic the load balancer uses to distribute traffic. Also referred to as a lo
 <p><strong>Health Checks</strong>
 Checks the status of the backend(s) and whether they can recieve traffic. Load balancers will not send traffic to an unhealthy backend.</p>
 <p>Below is a simple diagram that illustrates the flow of traffic through a load balancer:
-<img loading="lazy" src="http://localhost:1313/building-a-lb-w-tf.jpeg"></p>
+<img loading="lazy" src="/building-a-lb-w-tf.jpeg"></p>
 </li>
 </ul>
 <p>Traffic enters the load balancer through its frontend IP, the forwarding rule(s) determines how to route traffic to the backends, the health check confirms that the backend is healthy-and if so then the traffic is routed there.</p>
@@ -326,9 +326,9 @@ Checks the status of the backend(s) and whether they can recieve traffic. Load b
 </ul>
 <p>Note, that the global address and http proxy resources are different between internal and external LBs. External LBs use a global address resource to make a public IP address that clients from the internet can use to access the external LB. Internal LBs do not need a global address. In addiiton, internal LBs use the <strong>&ldquo;google_compute_target_http_proxy&rdquo;</strong> proxy resource, external LBs use the <strong>&ldquo;google_compute_global_forwarding_rule&rdquo;</strong> resource.</p>
 <p>Below is a diagram illustrating the flow of traffic through the Terraform resources that make an internal load balancer:
-<img loading="lazy" src="http://localhost:1313/building-a-lb-with-tf-ilb.jpeg"></p>
+<img loading="lazy" src="/building-a-lb-with-tf-ilb.jpeg"></p>
 <p>And this is the flow of traffic through the Terraform resources that make an external load balancer:
-<img loading="lazy" src="http://localhost:1313/building-a-lb-with-tf-xlb.jpeg"></p>
+<img loading="lazy" src="/building-a-lb-with-tf-xlb.jpeg"></p>
 <h2 id="url-maps-in-a-gcp-lb-created-with-terraform">URL Maps in a GCP LB Created with Terraform<a hidden class="anchor" aria-hidden="true" href="#url-maps-in-a-gcp-lb-created-with-terraform">#</a></h2>
 <p>It is simple enough to copy/paste the required TF resources to create a GCP LB, but configuring the LB to route traffic in the way that you want isn&rsquo;t as straightforward. A URL map is used to send requests to the correct backend based on logic that you define.</p>
 <h3 id="host-and-path-rules">Host and Path Rules<a hidden class="anchor" aria-hidden="true" href="#host-and-path-rules">#</a></h3>

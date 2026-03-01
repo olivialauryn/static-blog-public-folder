@@ -11,7 +11,7 @@
 If you are using a Linux machine, you can write and execute Bash scripts in terminal. Through the terminal you can use your preferred text editor (nano, vim, etc.) to write your script and save it with the extension .sh. If you are using a MacBook, like me, you can use the terminal or Visual Studio Code to write Bash scripts- just save them with the .bash extension.">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/bash-basics/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -251,10 +251,10 @@ If you are using a Linux machine, you can write and execute Bash scripts in term
 <h4 id="variables-and-math">Variables and Math<a hidden class="anchor" aria-hidden="true" href="#variables-and-math">#</a></h4>
 <p>The body of a Bash script can consist of variables, commands, and arithmetic operations. Variables are a basic building block of Bash scripts. <code>VARIABLE=VALUE</code> is the basic assignment statement, notice there are no spaces. To call a variable in a Bash script, use<code> $VARIABLE</code>. The &ldquo;print statement&rdquo; for Bash scripting is echo. If you want to output something to the user use <code>echo &quot;statement&quot;/$VARIABLE</code>.</p>
 <p>If you want to assign an interpreted value with spaces to a variable, you must include double quotes around the value. If you want to interpret the value with spaces literally, use single quotes. Below is an example of a Bash script and its output that shows the difference between single and double quotes.</p>
-<p><img loading="lazy" src="http://localhost:1313/bash-1.png"></p>
-<p><img loading="lazy" src="http://localhost:1313/bash-2.png"></p>
+<p><img loading="lazy" src="/bash-1.png"></p>
+<p><img loading="lazy" src="/bash-2.png"></p>
 <p>Bash interprets everything as strings, meaning that if you want to do math-you need to explicitly tell Bash. To do that, include an arithmetic operation in <code>$(()) </code>or place <code>let</code> before it. Bash can&rsquo;t perform arithmetic on decimals or fractions. Below is a list of arithmetic operators bash can process:</p>
-<p><img loading="lazy" src="http://localhost:1313/bash-3.png"></p>
+<p><img loading="lazy" src="/bash-3.png"></p>
 <h4 id="read-and-parameters">Read and Parameters<a hidden class="anchor" aria-hidden="true" href="#read-and-parameters">#</a></h4>
 <p>Getting input from users in Bash is a little different. Anywhere that you want to insert a user&rsquo;s input into a Bash script place $1, $2, $3, etc. Input is accepted as parameters, and the parameters are placed in those spots in the order they are given. If the number of parameters given exceeds the number of spots for them in the script, the extra parameters are ignored.</p>
 <p>If you want to provide the user a prompt, and assign their parameters names, you can use the read statement in your script: <code>read -p &quot;message&quot; var1 var 2 ...</code></p>
@@ -268,8 +268,8 @@ If you are using a Linux machine, you can write and execute Bash scripts in term
 <li>$@: returns a list of all parameters</li>
 </ul>
 <p>Example script:</p>
-<p><img loading="lazy" src="http://localhost:1313/bash-4.png"></p>
-<p><img loading="lazy" src="http://localhost:1313/bash-5.png"></p>
+<p><img loading="lazy" src="/bash-4.png"></p>
+<p><img loading="lazy" src="/bash-5.png"></p>
 
 
   </div>

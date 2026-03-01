@@ -12,7 +12,7 @@ Until now, the blog I use to document my projects has been hosted on WordPress. 
 Most websites we visit are dynamic websites, meaning that a web server generates the site with content that can change and be interacted with by users. Static websites are the opposite, they display the same content for every user and are shown exactly as they are written (usually using HTML).">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/static-blog/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -250,7 +250,7 @@ Most websites we visit are dynamic websites, meaning that a web server generates
     </details>
 </div>
 
-  <div class="post-content"><p><img loading="lazy" src="http://localhost:1313/static13.png"></p>
+  <div class="post-content"><p><img loading="lazy" src="/static13.png"></p>
 <p>Until now, the blog I use to document my projects has been hosted on WordPress. To cut down on the cost of running my blog (and to complete a cool project), I’ve made my blog a static website.</p>
 <p>Most websites we visit are dynamic websites, meaning that a web server generates the site with content that can change and be interacted with by users. Static websites are the opposite, they display the same content for every user and are shown exactly as they are written (usually using HTML).</p>
 <p>Creating your static website does involve some coding, but all-in-all it can be easy. I used Hugo, Git, AWS Amplify, and AWS Route53 to create my static website.</p>
@@ -259,15 +259,15 @@ Most websites we visit are dynamic websites, meaning that a web server generates
 <p>I used homebrew to install hugo on my MacBook, but you can find other ways to install Hugo on their <a href="https://gohugo.io/getting-started/installing">website</a></p>
 <p><strong>brew install hugo</strong></p>
 <p>To check that hugo has successfully installed, run <strong>hugo version</strong> in your terminal.
-<img alt="hugo version" loading="lazy" src="http://localhost:1313/static1.png"></p>
+<img alt="hugo version" loading="lazy" src="/static1.png"></p>
 <p>Now that hugo is installed, you can create a static website using <strong>hugo new site <code>nameofsite</code></strong>.</p>
 <p>This will create a variety of folders for your static webpage.
-<img loading="lazy" src="http://localhost:1313/static2.png"></p>
+<img loading="lazy" src="/static2.png"></p>
 <p>Before you begin adding content to your site, you must install a theme. There are a variety of themes to choose from on Hugo’s <a href="https://themes.gohugo.io/">webpage</a> but the more complex the theme, the more difficult it is to configure your site.</p>
 <p>The location of where you need to upload your posts/images varies depending on what theme you use. This can make getting your site up and running a little difficult. Themes do come with an “exampleSite” folder that you can reference for how to set up the folders of your static site, but there is some trial-and-error when creating your posts to see what loads correctly.</p>
 <p>To install your theme, Hugo recommends using Git-but for simplicity’s sake I navigated to my theme of choice (<a href="https://themes.gohugo.io/ghostwriter/">https://themes.gohugo.io/ghostwriter/</a>) on Hugo’s website and downloaded a .zip file of the theme. I then unzipped that theme in the /theme folder of my static website.</p>
 <p>Once your theme is installed, navigate to that theme’s folder and find the /exampleSite folder. From there-copy any folders under the example site’s /content folder you would like to use into your site’s /content folder. I wanted to use /page and /post.
-<img loading="lazy" src="http://localhost:1313/static3.png"></p>
+<img loading="lazy" src="/static3.png"></p>
 <p>You’ll notice there is also a sample config file in the exampleSite. You can copy the content of the example config file into your site’s config.toml to add your theme’s information to your site.</p>
 <p>NOTE: My theme was originally unzipped as “ghostwriter-master” in the /theme folder, but after copying the example config into my site’s real one- I saw that the theme = “ghostwriter”. To make the config file find my theme, I renamed the theme folder from “ghostwriter-master” to “ghostwriter”.</p>
 <p>Further editing the config.toml file allows you to change the title, heading, and other options on your site.</p>
@@ -278,8 +278,8 @@ Most websites we visit are dynamic websites, meaning that a web server generates
 <p>I used the ExitWP extension to convert my existing WordPress posts to markdown for me.
 First, download the extension using <strong>git clone <a href="https://github.com/wooni005/exitwp-for-hugo.git">https://github.com/wooni005/exitwp-for-hugo.git</a></strong> which creates a variety of folders.
 Next, on WordPress, I navigated to the export tool and chose to download just the posts.</p>
-<p><img loading="lazy" src="http://localhost:1313/static4.png"></p>
-<p><img loading="lazy" src="http://localhost:1313/static5.png"></p>
+<p><img loading="lazy" src="/static4.png"></p>
+<p><img loading="lazy" src="/static5.png"></p>
 <p>The posts export as .xml files, which I placed into the wordpress-xml folder the ExitWP extension created. A handful of dependencies are required to run the ExitWP extension. The commands to download these dependencies can be found on the extension’s Git <a href="https://github.com/wooni005/exitwp-for-hugo">page.</a></p>
 <p>On my Mac I ran: <strong>sudo pip install &ndash;upgrade -r pip_requirements.txt</strong></p>
 <p>Once the dependencies are installed, run <strong>./exitwp.py</strong> in the root directory of the extension to execute the python script that converts the WordPress posts to markdown. The converted files should show up in the extension’s /build folder.</p>
@@ -299,29 +299,29 @@ Next, on WordPress, I navigated to the export tool and chose to download just th
 <p>Once the /public folder of the static website was placed into a public Git repo, I used AWS Amplify to host the website.</p>
 <p>AWS <a href="https://aws.amazon.com/amplify/">Amplify</a> allows you to host apps in the cloud using Amazon Web Services. While Amplify does offer a variety of complex services for things like machine learning and targeted campaigns, creating a static website using Amplify is pretty simple.</p>
 <p>You must have an AWS account to use Amplify and Route 53 (discussed later). Once you log in to your AWS account navigate to the “AWS Amplify” service.</p>
-<p><img loading="lazy" src="http://localhost:1313/static6.png"></p>
+<p><img loading="lazy" src="/static6.png"></p>
 <p>In Amplify, select “New app” &gt; “Host web app”
-<img loading="lazy" src="http://localhost:1313/static7.png"></p>
+<img loading="lazy" src="/static7.png"></p>
 <p>Select GitHub under “From your existing code” since you will be connecting the Git repo with the /public folder in it to Amplify. From there, you can select the repo you would like to connect to Amplify and the branch (in my case, it was just the main branch since I did not add more branches to the repo).
 Next, you can change the app name and the app’s settings which I kept the same. Finally, you review the contents of your app and then select “Deploy” to create it.</p>
 <p>Now in the AWS Amplify service, you should see your website as an app under “all apps”. If you click on your app you can watch the process as Amplify provisions, builds, deploys, and verifies it for you.</p>
-<p><img loading="lazy" src="http://localhost:1313/static8.png"></p>
+<p><img loading="lazy" src="/static8.png"></p>
 <p>You can click on the link Amplify provides you under the picture of your app to visit your static webpage and make sure it looks like it should.</p>
 <h3 id="route-53">Route 53<a hidden class="anchor" aria-hidden="true" href="#route-53">#</a></h3>
 <p>The last step I took in configuring my static website was to add a custom domain name to my Amplify app using Route 53. The instructions to do so can be found <a href="https://docs.aws.amazon.com/amplify/latest/userguide/to-add-a-custom-domain-managed-by-amazon-route-53.html">here</a>.</p>
 <p>Route 53 is a Domain Name System (DNS) service AWS provides. You can use Route 53 to route end users to your apps using custom, or “prettier” domain names.</p>
 <p>To use Route 53, first navigate to the Route 53 service in AWS. From there, you can view your registered domains. If you don’t have any, you can select the “Register Domain” button to do so-but the domain for my blog (osnowden.com) had already been registered.</p>
-<p><img loading="lazy" src="http://localhost:1313/static9.png"></p>
+<p><img loading="lazy" src="/static9.png"></p>
 <p>Back in Amplify, select App Settings &gt; Domain Management</p>
-<p><img loading="lazy" src="http://localhost:1313/static10.png"></p>
+<p><img loading="lazy" src="/static10.png"></p>
 <p>Then choose to “Add domain” and fill out your domain’s information.
 When I added my domain, it became stuck on the “Domain activation” step.</p>
-<p><img loading="lazy" src="http://localhost:1313/static11.png"></p>
+<p><img loading="lazy" src="/static11.png"></p>
 <p>To fix this, I had to add two records to my domain in Route 53 so that it would resolve the Amplify app correctly. The instructions to do so can be found under the Actions &gt; View DNS Records button on Amplify’s “Domain management” page.</p>
 <p>To add the records, I navigated to Route 53 &gt; “Hosted zones” and selected my domain to view it’s records. Selecting “Create records” allowed me to then add the two necessary records.</p>
 <p>I first added an A record with the format <strong>@.osnowden.com A appid.cloudfront.net</strong> and a CNAME record with the format <strong><a href="https://www.osnowden.com">www.osnowden.com</a> CNAME appid.cloudfront.net</strong></p>
 <p>The appid of my Amplify app I copied from the URL at the bottom of the “Domain management” page in Amplify. The URL should be in the format: https://master.<strong>appid</strong>.amplifyapp.com</p>
-<p><img loading="lazy" src="http://localhost:1313/static12.png"></p>
+<p><img loading="lazy" src="/static12.png"></p>
 <p>Once the records were added, my static website was then accessible from <a href="https://www.osnowden.com">www.osnowden.com</a>!</p>
 
 

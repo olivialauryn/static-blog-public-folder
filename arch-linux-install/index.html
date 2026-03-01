@@ -10,7 +10,7 @@
 <meta name="description" content="Arch Linux&rsquo;s official website describes Arch as a distribution that &ldquo;tries to Keep It Simple&rdquo;. It also states that Arch is not for those without the ability or time for a &ldquo;do-it-yourself&rdquo; system&ndash;which is true. I recently built a machine that needed a lightweight OS, so Arch Linux was a good choice. Installing Arch Linux can seem complicated, but understanding what needs to happen in each step of the install makes it feel fun and easy. Here&rsquo;s what I did:">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/arch-linux-install/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -224,7 +224,7 @@
   <div class="post-content"><p>Arch Linux&rsquo;s official website describes Arch as a distribution that &ldquo;tries to Keep It Simple&rdquo;. It also states that Arch is not for those without the ability or time for a &ldquo;do-it-yourself&rdquo; system&ndash;which is true. I recently built a machine that needed a lightweight OS, so Arch Linux was a good choice. Installing Arch Linux can seem complicated, but understanding what needs to happen in each step of the install makes it feel fun and easy. Here&rsquo;s what I did:</p>
 <p>The Arch Linux <a href="https://wiki.archlinux.org/index.php/Installation_guide">installation guide</a> lists each step to install Arch and provides links to a variety of wiki pages that are worth reviewing before you begin. I opted to practice installing Arch Linux on a virtual machine in my home lab, so I downloaded an Arch iso and spun up a VM.</p>
 <p>BIOS and UEFI are both interfaces that boot the operating system, but UEFI is newer and more powerful. My VM allowed BIOS, so that is what I used, but it is important to remember which you chose for steps later in the install.</p>
-<p><img alt="Linux Boot Screen" loading="lazy" src="http://localhost:1313/arch-boot-screen.png"></p>
+<p><img alt="Linux Boot Screen" loading="lazy" src="/arch-boot-screen.png"></p>
 <p>Whether you are installing Arch Linux on a VM or real computer, the first step is to confirm you can connect to the internet on the machine you are running the install. With Arch you are building the OS from basically nothing, and without an internet connection you wont be able to install the packages required for a functioning computer. Connect to an ethernet cable/wireless LAN and check your network with a few commands:</p>
 <pre><code>ip link 
 ip addr
@@ -246,7 +246,7 @@ ping google.com
 <p>At this point it is important to remember if you chose UEFI or BIOS to boot your machine. If your machine is booting in UEFI mode, you will use a globally unique identifiers (GUID) partition table to create your partitions. GUID is alternative partitioning style that aims to fix quirks found in older partitioning methods. For GUID you&rsquo;ll create a root partition, swap partition, and a EFI system (boot) partition. BIOS however, uses a master boot record (MBR) to store the OS bootloader and the partition table.  So if you are using BIOS, as I did, you&rsquo;ll only need a root partition and a swap partition.</p>
 <p>I used fdisk to manipulate the disk&rsquo;s partition table.</p>
 <p>I viewed the partition table with <code>fdisk -l</code> then began editing the main disk by entering <code>fdisk /dev/sda</code> since my VM&rsquo;s disk was /dev/sda.</p>
-<p><img alt="Partitioning using fdisk" loading="lazy" src="http://localhost:1313/arch-fdisk.png"></p>
+<p><img alt="Partitioning using fdisk" loading="lazy" src="/arch-fdisk.png"></p>
 <p>fdisk&rsquo;s command mode allows you to enter single letters to specify actions. Entering &ldquo;m&rdquo; will show you all possible commands and make navigating fdisk easy.</p>
 <p>Type &ldquo;n&rdquo; to create a new partition.</p>
 <p>Type &ldquo;p&rdquo; to create a primary partition, or &ldquo;l&rdquo; to create a logical partition (in an extended partition) .</p>
@@ -299,13 +299,13 @@ ctrl+K to delete all mirror servers not in my region.
 <pre><code>locale-gen
 </code></pre>
 <p>Then edit /etc/locale.conf with the text editor package installed in step 4, set the LANG variable to the correct language.</p>
-<p><img alt="Editing /etc/locale.conf" loading="lazy" src="http://localhost:1313/arch-locale.png"></p>
+<p><img alt="Editing /etc/locale.conf" loading="lazy" src="/arch-locale.png"></p>
 <p>The hostname file sets the unique name given to your machine. Create the /etc/hostname file with your text editor, and enter the name you want to give your Arch Linux machine (I named mine Arch_Linux).</p>
 <pre><code>nano /etc/hostname 
   &lt;em&gt;hostname &lt;/em&gt;
 </code></pre>
 <p>You then add your hostname to the /hosts file, which is a static table lookup for hostnames. Here you&rsquo;ll add your host&rsquo;s loopback address.</p>
-<p><img loading="lazy" src="http://localhost:1313/arch-loopback.png"></p>
+<p><img loading="lazy" src="/arch-loopback.png"></p>
 <p>Then, set the root password.</p>
 <pre><code>passwd 
 </code></pre>
@@ -315,7 +315,7 @@ grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre>
 <p>When you reboot your machine, you are then able to sign in as root and begin working on Arch Linux!</p>
-<p><img loading="lazy" src="http://localhost:1313/arch-arch.png"></p>
+<p><img loading="lazy" src="/arch-arch.png"></p>
 
 
   </div>

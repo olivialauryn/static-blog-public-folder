@@ -10,7 +10,7 @@
 <meta name="description" content="As I continue to study artificial intelligence I&rsquo;ve been able to practice using Microsoft&rsquo;s cognitive services. I was first introduced to cognitive services during the virtual Microsoft Build 2020 conference, and I&rsquo;ve enjoyed getting to use them for myself. Since creating and training your own artificial intelligence/machine learning software is all kinds of complicated, cognitive services allow anyone to use AI in their projects without having to write much code.  All you have to do is call the service that you want, and it will do the hard work for you.">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/cognitive-services-text/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -229,15 +229,15 @@
 <li>Search for the resource you want and click &ldquo;create&rdquo;</li>
 <li>Give the resource a unique name, assign it to a subscription, a pricing tier, and a resource group. Here you can create a new resource group to place the resource in if you would like.</li>
 </ul>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-1.png"></p>
+<p><img loading="lazy" src="/cognitive-1.png"></p>
 <p>Cognitive services require that you have a key (found under the &ldquo;keys and endpoints&rdquo; menu of a resource) and that you know which location your resource is deployed in. This allows you to use your resource to talk to Microsoft&rsquo;s cognitive service through API (application programming interface) calls or SKDs (software development kits).</p>
 <p>The text analytics service allows you to detect the language of written text, key phrases, sentiment, and key elements that state intent called &ldquo;entities&rdquo;.</p>
 <p>I used text analytics to detect sentiment in text, although the process is similar for any action using text analytics. The text analytics landing page &ldquo;https://[location].dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0&rdquo; (where  [location] is the region you deployed your text analytics resource)  allows you to easily use POST methods to call the Text Analytics API. I selected the &ldquo;sentiment&rdquo; tab where you choose your region and enter the key of your text analytics resource. This information is included in the header section of the request so that it can be made from the right place.</p>
 <p>The request body itself consists of a document array. Each document has a language, id and text property that defines the text the text analytics service will be analyzing. You can pass documents up to 5,000 characters, and a single request can have 1,000 documents.</p>
 <p>Once you enter the documents you want and give them the appropriate <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/language-support?tabs=sentiment-analysis">language</a> property, a unique id and some text you can see the complete http request that will be sent to the Text Analytics API.</p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-2.png"></p>
+<p><img loading="lazy" src="/cognitive-2.png"></p>
 <p>Once you send the request you&rsquo;re given a response that lists the id of each document followed by their score. When detecting sentiment the Text Analytics API scores the text from 0-1. 0 being very negative sentiment and 1 being very positive.  Below you can see how my three documents were ranked, the first being very positive, the second being neutral, and the third being very negative.</p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-3.png"></p>
+<p><img loading="lazy" src="/cognitive-3.png"></p>
 <p>This particular service would be useful analyzing customer feedback or comments on a project. It&rsquo;s a very powerful way to examine text without having to create your own AI or write any code (beyond creating your documents).  All of the methods offered by the Text Analytics API could be helpful time-savers in a business and serve as a great intro to working with Microsoft&rsquo;s cognitive services.</p>
 
 

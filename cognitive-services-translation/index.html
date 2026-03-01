@@ -10,7 +10,7 @@
 <meta name="description" content="In addition to text analysis Microsoft&rsquo;s cognitive services allow you to convert speech to text, text to speech, and even translate between spoken languages. This powerful AI service is surprisingly easy to use. I was able to speak into my computers microphone and receive a text translation in one language or a spoken translation in multiple languages &ndash;all with the code provided on Microsoft Learn. You have the option to work with the speech SDK (software development kit) in C# or python, I choose python.">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/cognitive-services-translation/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -240,7 +240,7 @@
 <p>Like the text analysis cognitive service, you&rsquo;ll need to deploy a resource (for the speech service, deploy the &ldquo;speech&rdquo; resource) in Azure and save its key/region to use in the scripts. Since working with translating speech requires you to use your computer&rsquo;s microphone, the code for this service needs to be executed locally instead of in an online environment like Visual Studio Codespaces. I already had python and Visual Studio Code installed on my laptop, so that is what I used.</p>
 <h2 id="speech-to-text-translation">Speech to text translation<a hidden class="anchor" aria-hidden="true" href="#speech-to-text-translation">#</a></h2>
 <p>First, you need to create a folder to store the project in and then open that folder in your code editor. Once in the folder, create a file named translate_speech.py and copy in the code provided for this exercise on Microsoft Learn. In line 3 insert your Azure speech resource&rsquo;s key and region (To keep my key from being public I removed it for this photo-safety first).</p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-4.png"></p>
+<p><img loading="lazy" src="/cognitive-4.png"></p>
 <p>This script is commented well, so its easy to walk through. It breaks down speech translation into three key objects:</p>
 <ol>
 <li>SpeechTranslationConfig: accepts the key and region of your Azure resource, sets the source and target language, and creates a name for the speech output</li>
@@ -248,16 +248,16 @@
 <li>TranslationRecognitionResult: returns the result of the translation</li>
 </ol>
 <p>In this first half of this translate_speech_to_text function you can change the fromLanguage and toLanguage variables to translate to/from many different languages. Below is the second half of the function which consists of an if/elif statement that gives options for output. This way you&rsquo;ll receive output that informs you of what has happened even if the speech couldn&rsquo;t be translated or the translation was cancelled.</p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-5.png"></p>
+<p><img loading="lazy" src="/cognitive-5.png"></p>
 <p>In the last line you can see the translate_speech_to_text() function being called, which in combination with your Azure resource translates your speech to another language when the script is run. Here you can see my script running which translated &ldquo;Hello World&rdquo; in english to &ldquo;Hallo Welt&rdquo; in dutch.</p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-6.png"></p>
+<p><img loading="lazy" src="/cognitive-6.png"></p>
 <h2 id="speech-to-speech-translation-multiple-languages">Speech to speech translation-multiple languages<a hidden class="anchor" aria-hidden="true" href="#speech-to-speech-translation-multiple-languages">#</a></h2>
 <p>The speech cognitive service also allows you to translate speech in one language to speech in multiple other languages using a similar script to the one shown above. In addition to the SpeechTranslationConfig, TranslationRecognizer, and TranslationRecognitionResult objects the script for translating to multiple languages also uses a speech synthesizer object that plays the audio output of the target languages.</p>
 <p>You can use the same speech Azure resource for this script, I used Visual Studio Code and python here too. First you need to create a new file titled texttomultilang.py or something similar. Then copy in the code provided on Microsoft Learn for this exercise. Like before, you also need to insert your speech resource&rsquo;s key and region before the script&rsquo;s function.</p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-7.png"></p>
+<p><img loading="lazy" src="/cognitive-7.png"></p>
 <p>Here you can see this script is similar to the speech to text script. One difference is the addition of the speech_synthesizer object and multiple target languages in the SpeechTranslationConfig object&rsquo;s dictionary. You can add as many target languages as you would like by adding &ldquo;speech_config.add_target_language(&rsquo;<em>language</em>&rsquo;)&rdquo; to the dictionary.</p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-8.png"></p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-9.png"></p>
+<p><img loading="lazy" src="/cognitive-8.png"></p>
+<p><img loading="lazy" src="/cognitive-9.png"></p>
 <p>Another difference between this script and the speech to text script is a more complicated if/elif statement at the end of the function. So that pronunciation is correct, its important that the synthesized voice used to &ldquo;speak&rdquo; the translation is the right voice for the language. To make sure that happens an if/else statement for each language the speech is being translated into is nested under the first <strong>if</strong> in the main if/elif structure. This is the basic setup:</p>
 <pre><code>Is the speech recognized/can it be translated? 
    then print the translations:
@@ -272,7 +272,7 @@ OR Was the translation cancelled?
 </code></pre>
 <p>If you add more toLanguages in the SpeechTranslationConfig&rsquo;s dictionary, make sure you add the language(s) to the nested if/else statement and name the right <a href="https://aka.ms/speech/sttt-languages">voice</a>.</p>
 <p>When the script is run your speech is printed, followed by the translations into the languages of your choice. In addition to a printed translation, you  receive a spoken translation with an appropriate accent.</p>
-<p><img loading="lazy" src="http://localhost:1313/cognitive-10.png"></p>
+<p><img loading="lazy" src="/cognitive-10.png"></p>
 <p>Being able to translate between languages in near real-time could be used in meetings, conferences, or presentations that have participants from all over the world. Regardless of how its used, working with the speech cognitive service is great practice in using python ( or C#) to work with AI.</p>
 
 

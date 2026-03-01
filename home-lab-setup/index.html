@@ -17,7 +17,7 @@ A Synology NAS DS420j (Diskstation)
 Building the home lab also required quite a few patch cables to connect devices, and I made most of them myself. This required UTP cable, plastic clips for the ends, a cable crimping tool, and a lot of patience. The arrangement of the wires, or the pinout, had to be in a specific order.">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/home-lab-setup/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -243,10 +243,10 @@ Building the home lab also required quite a few patch cables to connect devices,
 <li>A Synology NAS DS420j (Diskstation)</li>
 </ul>
 <p>Building the home lab also required quite a few patch cables to connect devices, and I made most of them myself. This required UTP cable, plastic clips for the ends, a cable crimping tool, and a lot of patience. The arrangement of the wires, or the pinout, had to be in a specific order.</p>
-<p><img alt="Patch Cable" loading="lazy" src="http://localhost:1313/home-cable.png"></p>
+<p><img alt="Patch Cable" loading="lazy" src="/home-cable.png"></p>
 <p>The first step in building the home-lab was finding a way to connect our home network to the garage. The lab needed to be in it&rsquo;s own subnet so that anything done in the lab (or anything that goes <em>wrong</em> in the lab) doesn&rsquo;t bleed over into the home network. To extend the home network to the garage, we used two Ubiquiti UniFi access points. One was connected to the home network and then placed on top of the house. The other was put on the garage, and the two access points were aligned.</p>
 <p>The AP on the garage was plugged into port 4 on the Ubiquiti EdgeRouter X, where a new 192.168.100.x/24 network was set. The router connected to the switch, which in turn connected to the two ESXi hosts and the Diskstation storage device.</p>
-<p><img loading="lazy" src="http://localhost:1313/home-topology.png"></p>
+<p><img loading="lazy" src="/home-topology.png"></p>
 <p>The Edge Router X doubles as a DHCP server, and once it gave the ESXi hosts and the Diskstation their own IP address the home-lab was ready for new projects.</p>
 
 

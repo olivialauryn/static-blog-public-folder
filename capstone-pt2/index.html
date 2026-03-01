@@ -11,7 +11,7 @@
 I&rsquo;m using Tensorflow to write a script that can process images of roads and determine whether there is an obstacle in the road or not. Since I&rsquo;m studying self-driving cars, I&rsquo;d like to see if using biased data to train an object detection script affects the model&rsquo;s performance. To do this, I&rsquo;m using a training dataset of clear, bright road images to train a neural network and then testing that script with corrupted images of roads. If the model can&rsquo;t recognize obstacles in images that are corrupted, then the biased training dataset did have an affect on the model.">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/capstone-pt2/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -275,7 +275,7 @@ I&rsquo;m using Tensorflow to write a script that can process images of roads an
 <p><code>val_ds = tf.keras.preprocessing.image_dataset_from_directory(   &quot;../input/testing-dataset&quot;,   seed=123,   subset=&quot;validation&quot;,   validation_split=0.20,   image_size=(img_height, img_width),   batch_size=batch_size)</code></p>
 <p>One thing to consider when using data to train a NN is how the model will learn &ldquo;what is what&rdquo;. An untrained model can&rsquo;t make its own conclusions, and piping random images into a model won&rsquo;t teach it anything. Data should be split into classes of whatever you want to model to learn to differentiate. In my case, I had two classes: &ldquo;obstacle&rdquo; and &ldquo;noobstacle&rdquo;.  In my datasets I included two folders, one for each class, and inside each folder I placed the respective images. I included a line in my script to double-check the classes were being read-in correctly:</p>
 <p><code>class_names = train_ds.class_names   print(class_names)</code></p>
-<p><img alt="Classes from my datasets" loading="lazy" src="http://localhost:1313/capstone-6.png"></p>
+<p><img alt="Classes from my datasets" loading="lazy" src="/capstone-6.png"></p>
 <h4 id="standardize-creating-and-compiling-the-model">Standardize, Creating and Compiling the Model<a hidden class="anchor" aria-hidden="true" href="#standardize-creating-and-compiling-the-model">#</a></h4>
 <p>Now that the datasets and classes of data are working, the model itself can be created. Like in my first Capstone post, I will be using the Sequential model, relu activation function, and Adam optimizer. However, for this script I have created a convolutional neural network (CNN).</p>
 <p>A CNN is a class of deep neural networks, and are commonly used to process images since they resemble the organization of an animal&rsquo;s visual cortex. CNNs take in tensors of shapes, in this case the image height, width, and an RGB value of 3 (color). These aspects are then assigned importance through weights and biases in order for the model to differentiate one from another.</p>
@@ -287,25 +287,25 @@ I&rsquo;m using Tensorflow to write a script that can process images of roads an
 <p><code>model = Sequential([   layers.experimental.preprocessing.Rescaling(1./255, input_shape=(img_height, img_width, 3)),   layers.Conv2D(16, 3, padding='same', activation='relu'),   layers.MaxPooling2D(),   layers.Conv2D(32, 3, padding='same', activation='relu'),   layers.MaxPooling2D(),   layers.Conv2D(64, 3, padding='same', activation='relu'),   layers.MaxPooling2D(),   layers.Dropout(0.2),   layers.Flatten(),   layers.Dense(128, activation='relu'),   layers.Dense(num_classes)   ])</code></p>
 <p>In my CNN I added a Dropout layer. This is one of the ways I improved the performance of my model. A Dropout layer randomly sets input to 0 at each layer while training. The inputs that aren&rsquo;t set to 0 are scaled up by 1. This helps prevent overfitting, which occurs when a model conforms too tightly to training data and doesn&rsquo;t learn enough to make predictions on new data.</p>
 <p>model.summary() helps to visualize what the layers of the CNN look like:</p>
-<p><img alt="Output from model.summary" loading="lazy" src="http://localhost:1313/capstone-7.png"></p>
+<p><img alt="Output from model.summary" loading="lazy" src="/capstone-7.png"></p>
 <p>To compile the model I used model.compile:</p>
 <p><code>model.compile(optimizer='adam',   loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),   metrics=['accuracy'])</code></p>
 <p>In addition to a Dropout layer, I also used data augmentation to reduce overfitting. Data augmentation makes multiple different images from one training image, by flipping or zooming in on different sections of the image. This helps add in more training data without having to manually add pictures to my datasets.</p>
 <p><code>data_augmentation = keras.Sequential(   [   layers.experimental.preprocessing.RandomFlip(&quot;horizontal&quot;,   input_shape=(img_height,   img_width,   3)),   layers.experimental.preprocessing.RandomRotation(0.1),   layers.experimental.preprocessing.RandomZoom(0.1),   ]   )</code></p>
-<p><img alt="Examples of data augmentation on one training image" loading="lazy" src="http://localhost:1313/capstone-8.png"></p>
+<p><img alt="Examples of data augmentation on one training image" loading="lazy" src="/capstone-8.png"></p>
 <h4 id="train-and-visualize">Train and Visualize<a hidden class="anchor" aria-hidden="true" href="#train-and-visualize">#</a></h4>
 <p>Training and testing your model with Tensorflow can be done in a few lines of code:</p>
 <p><code>epochs=27   history = model.fit(   train_ds,   validation_data=val_ds,   epochs=epochs   )</code></p>
 <p>You&rsquo;ll notice that here epochs are set to 27. I explained back/forward propagation in my first Capstone post, but epochs are basically the number of times your NN loops through its layers to learn. Batch size, which we set earlier, defines how much of your dataset is put into your model at a time. This is a good way to save computation resources, so you aren&rsquo;t trying to put a dataset of potentially millions of images into your model at a time.</p>
 <p>However, if you set the number of epochs too low, the NN won&rsquo;t learn enough. If there are too many epochs, the NN can become too familiar with only the training data and overfit when tested. Unfortunately, there is no easy formula to determine how many epochs to use. I just monitored the performance of my NN with different numbers of epochs, and settled on 27.</p>
-<p><img alt="One epoch from my model" loading="lazy" src="http://localhost:1313/capstone-9.png"></p>
+<p><img alt="One epoch from my model" loading="lazy" src="/capstone-9.png"></p>
 <p>What can help you determine the number of epochs to use, along with check your model&rsquo;s accuracy, is visualizing your results.  In my script I used matplotlib.pyplot to make a graph.</p>
 <p><code>acc = history.history['accuracy']   val_acc = history.history['val_accuracy']</code></p>
 <p><code>loss = history.history['loss']   val_loss = history.history['val_loss']</code></p>
 <p><code>epochs_range = range(epochs)</code></p>
 <p><code>plt.figure(figsize=(8, 8))   plt.subplot(1, 2, 1)   plt.plot(epochs_range, acc, label='Training Accuracy')   plt.plot(epochs_range, val_acc, label='Testing Accuracy')   plt.legend(loc='lower right')   plt.title('Training and Testing Accuracy')</code></p>
 <p><code>plt.subplot(1, 2, 2)   plt.plot(epochs_range, loss, label='Training Loss')   plt.plot(epochs_range, val_loss, label='Testing Loss')   plt.legend(loc='upper right')   plt.title('Training and Testing Loss')   plt.show()</code></p>
-<p><img alt="Graph from my model" loading="lazy" src="http://localhost:1313/capstone-10.png"></p>
+<p><img alt="Graph from my model" loading="lazy" src="/capstone-10.png"></p>
 <h4 id="wrapping-it-up">Wrapping it Up<a hidden class="anchor" aria-hidden="true" href="#wrapping-it-up">#</a></h4>
 <p>In this case, the two most important metrics are the training accuracy and the testing accuracy. The training accuracy for my model was nearly 100%, while the testing accuracy was 72-80% (this varied between runs of my script). To put it into perspective, 50% accuracy would be guessing-since the model has only two options to choose from (obstacle or no obstacle).  I can live with 72-80% accuracy, although the large difference between my training and testing accuracy means that my model is overfitting. To help fight overfitting, I most likely need to add more images to my dataset (most image datasets have 10,000+ images, mine have 200) or change the type of activation function/optimizer I am using.</p>
 <p>From the graph, you can also see that the training loss (prediction error) drastically lowers over epochs, while testing loss doesn&rsquo;t significantly lower. This is another result of overfitting, although my model does work much better with the inclusion of data augmentation and dropout.</p>

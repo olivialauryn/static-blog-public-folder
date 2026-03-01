@@ -11,7 +11,7 @@
 K3S is a Rancher product that allows you to deploy a Kubernetes cluster using a single binary file thats less than 40MB. K3S is ideal for Raspberry Pis, since traditionally building a Kubernetes cluster on Pis could be too much for them to handle.  In addition to K3S this is what I used to build a simple Kubernetes cluster in my home lab:">
 <meta name="author" content="Olivia Snowden">
 <link rel="canonical" href="http://localhost:1313/raspberry-pi-kubernetes/">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f8702ad4c3159231ff7aa5f7bf1a574a69e60a988350dee1489d2c17b25d91e.css" integrity="sha256-f4cCrUwxWSMf96pfe/GldKaeYKmINQ3uFInSwXsl2R4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -261,22 +261,22 @@ K3S is a Rancher product that allows you to deploy a Kubernetes cluster using a 
 <p>A Kubernetes cluster runs by placing containers into groups called <em>pods</em> that run on nodes. A node can be a virtual or physical machine. Each cluster has a master node and at least one worker node that it reports to it. I had 3 Pis to use, so in my cluster I built one master node and two worker nodes. kubectl is the Kubernetes command-line tool that you can use to run commands against a cluster. When building this cluster I used a few kubectl commands to check my progress, but they can be used for a lot more.</p>
 <h4 id="step-1-build-case-optional">STEP 1: Build case (optional)<a hidden class="anchor" aria-hidden="true" href="#step-1-build-case-optional">#</a></h4>
 <p>I got a case, which is basically a rack, to safely store the 3 Pis for the cluster. The first step was building the case, which consisted of screwing each Raspberry Pi to a base and stacking them one on top of the other. In between each Pi was a fan connected to the Pi below it to provide air flow, and I made sure to place heat sinks on the CPU, RAM and LAN of each Pi. The cooling equipment is probably unnecessary for this small project, but it will be good to have for a more CPU intense project in the future.</p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-1.jpeg"></p>
+<p><img loading="lazy" src="/raspberry-1.jpeg"></p>
 <h4 id="step-2-set-up-the-raspberry-pis">STEP 2: Set up the Raspberry Pis<a hidden class="anchor" aria-hidden="true" href="#step-2-set-up-the-raspberry-pis">#</a></h4>
 <p>Next, each Pi will need an SD card with an OS on it. They&rsquo;ll also need to be connected to the internet with a static IP and have SSH abilities. You can go about this any way you want, but I chose to install Raspberry Pi OS 64 bit, a beta version of the new Pi OS, and configure the Pis to be headless.</p>
 <p>I used a laptop running Linux Mint to put the OSs onto the SD cards. This involved downloading the OS and the app image of balenaEtcher onto the laptop and then putting the little SD cards in a USB with a MicroSD card adapter. Once plugged into the laptop, I used balenaEtcher to flash Raspberry Pi OS (64 bit) onto each card.</p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-2.png"></p>
+<p><img loading="lazy" src="/raspberry-2.png"></p>
 <p>Once done I configured the SD cards so that the Pis would be headless (automatically boot with SSH ability and an IP).</p>
 <p>After the SD cards are in the Pis, plug each Pi into a power supply and connected each one to the switch using patch cables.</p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-3.jpeg"></p>
+<p><img loading="lazy" src="/raspberry-3.jpeg"></p>
 <p>Since I configured the Pis to be headless, I checked the leased IPs on the router in the lab to find the IPs of each Pi and set that IP to be static.</p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-4.png"></p>
+<p><img loading="lazy" src="/raspberry-4.png"></p>
 <h4 id="step-3-change-hostnames-optional">STEP 3: Change hostnames (optional)<a hidden class="anchor" aria-hidden="true" href="#step-3-change-hostnames-optional">#</a></h4>
 <p>Building a Kubernetes cluster on Raspberry Pis involves a lot of SSH-ing, so to make it easier you can rename each Pi. I used the same names I gave each Pi on the router (kmaster, knode1, and knode2). On my PC (a MacBook) I ran <code>sudo nano /etc/host</code> to enter the hosts file. In the file I added three new lines, each containing the IP of a node and its friendly name.</p>
 <p>I then SSH-ed into each Pi one by one and changed its name in the hostname file by running <code>sudo nano /etc/hostname</code>.</p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-5.png"></p>
+<p><img loading="lazy" src="/raspberry-5.png"></p>
 <p>I then entered the /etc/host file like before to remove any instance of the old hostname and replace it with the new one.</p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-6.png"></p>
+<p><img loading="lazy" src="/raspberry-6.png"></p>
 <p>Once those files are edited, reboot the Pis.</p>
 <h4 id="step-4-create-the-master-node">STEP 4: Create the master node<a hidden class="anchor" aria-hidden="true" href="#step-4-create-the-master-node">#</a></h4>
 <p>SSH into the Pi you designated to be the master node.</p>
@@ -286,11 +286,11 @@ K3S is a Rancher product that allows you to deploy a Kubernetes cluster using a 
 </code></pre>
 <p>To make sure the K3S installed correctly, and to check its status, use:</p>
 <p><code>sudo systemctl status k3s</code></p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-7.png"></p>
+<p><img loading="lazy" src="/raspberry-7.png"></p>
 <p>You should see that you have the k3s service running on your Pi. To check your nodes, run:</p>
 <p><code>sudo k3s kubectl get nodes </code></p>
 <p>At this point, you should only see your master node up and running.</p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-8.png"></p>
+<p><img loading="lazy" src="/raspberry-8.png"></p>
 <p>To add agent, or worker, nodes to your master node you need the token the master node generates. To get it:</p>
 <p><code>sudo cat /var/lib/rancher/k3s/server/node-token</code></p>
 <p>Copy the token and save it for later.</p>
@@ -304,7 +304,7 @@ K3S is a Rancher product that allows you to deploy a Kubernetes cluster using a 
 <p>On your PC, make a directory for the config file ( <code>mkdir ~/.kube</code>) and paste the file into it. Before saving, change the &ldquo;https://localhost:6443&rdquo; line in the file to &ldquo;https://kmaster:6443&rdquo;.</p>
 <p>Then install kubectl on your PC, simple instructions for your PC&rsquo;s OS can be found <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">here</a>.</p>
 <p>Finally, run <code>kubectl get nodes</code> on your PC to see the kubernetes cluster you have created.</p>
-<p><img loading="lazy" src="http://localhost:1313/raspberry-9.png"></p>
+<p><img loading="lazy" src="/raspberry-9.png"></p>
 
 
   </div>
