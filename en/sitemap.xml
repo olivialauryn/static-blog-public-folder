@@ -40,16 +40,6 @@
   </url><url>
     <loc>//localhost:1313/tags/</loc>
     <lastmod>2023-03-22T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="//localhost:1313/fr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/tags/"
-                />
   </url><url>
     <loc>//localhost:1313/tags/terraform/</loc>
     <lastmod>2023-03-22T00:00:00+00:00</lastmod>
@@ -144,16 +134,6 @@
     <loc>//localhost:1313/archives/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="//localhost:1313/fr/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/categories/"
-                />
   </url><url>
     <loc>//localhost:1313/search/</loc>
   </url><url>
